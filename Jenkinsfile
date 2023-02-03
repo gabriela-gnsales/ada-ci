@@ -1,7 +1,7 @@
 pipeline {
     agent {label 'nodeprojeto'}
     environment {
-	DOCKERHUB_CREDENTIALS = credentials('gabrielagns-dockerhub')
+	    DOCKERHUB_CREDENTIALS = credentials('gabrielagns-dockerhub')
     }
     stages {
         stage('Clone repository') { 
