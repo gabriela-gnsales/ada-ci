@@ -1,8 +1,8 @@
 pipeline {
     agent {label 'nodeprojeto'}
-	environment {
-		DOCKERHUB_CREDENTIALS = credentials('gabrielagns-dockerhub')
-	}
+    environment {
+	DOCKERHUB_CREDENTIALS = credentials('gabrielagns-dockerhub')
+    }
     stages {
         stage('Clone repository') { 
             steps {
@@ -12,8 +12,6 @@ pipeline {
               )
             }
         }
-
-        
         stage('Build dev'){
             when {
                not {
