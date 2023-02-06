@@ -1,8 +1,5 @@
 pipeline {
     agent {label 'nodejenkins'}
-    environment {
-	    DOCKERHUB_CREDENTIALS = credentials('gabrielagns-dockerhub')
-    }
     stages {
         stage('Clone repository') { 
             steps {
@@ -33,11 +30,6 @@ pipeline {
                 script{
                  image = docker.build("gabrielagns/v1:main")
                 }
-            }
-        }
-        stage('Login') {
-            steps {
-                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
         }
         stage('Push') {
