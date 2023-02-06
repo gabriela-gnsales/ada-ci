@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'nodeprojeto'}
+    agent {label 'nodejenkins'}
     environment {
 	    DOCKERHUB_CREDENTIALS = credentials('gabrielagns-dockerhub')
     }
