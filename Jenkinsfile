@@ -35,8 +35,17 @@ pipeline {
         stage('Push') {
             steps {
                 script{
-                       docker.withRegistry('', 'docker') {
+                       docker.withRegistry('', 'gabrielagns-dockerhub') {
                        image.push()
+                    }
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                 script {
+                    docker.image('gabrielagns/v1:main').withRun('-p 3000:3000 -d') {c ->
+                        sleep 300
                     }
                 }
             }
